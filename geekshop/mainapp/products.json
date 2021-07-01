@@ -1,0 +1,30 @@
+[
+  {
+    "category": 7,
+    "name": "Красный стул",
+    "image": "products_images/product-4.jpg",
+    "price": 4800,
+    "quantity": 12
+  },
+  {
+    "category": 7,
+    "name": "Синий стул",
+    "image": "products_images/product-2.jpg",
+    "price": 2800,
+    "quantity": 12
+  },
+  {
+    "category": 7,
+    "name": "Диван",
+    "image": "products_images/product-3-sm.jpg",
+    "price": 4800,
+    "quantity": 12
+  },
+  {
+    "category": 7,
+    "name": "Лампа",
+    "image": "products_images/product-5-sm.jpg",
+    "price": 4800,
+    "quantity": 12
+  }
+]
