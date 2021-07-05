@@ -1,7 +1,9 @@
-from django.core.management.base import BaseCommand
-from ...models import ProductCategory, Product
+import json
+import os
 
-import json, os
+from django.core.management.base import BaseCommand
+
+from ...models import ProductCategory, Product
 
 JSON_PATH = 'mainapp/jsons'
 
