@@ -7,15 +7,16 @@
         <div class="hero-white">
             <div class="header clearfix">
                 {% include 'includes/inc_main_menu.html' %}
-                <a href="#" class="basket"></a>
             </div>
         </div>
         <div class="details">
             <div class="links clearfix">
                 <ul class="links-menu">
-                    <li><a href="#">Все</a></li>
+                    <li><a href="{% url 'mainapp:category' 0 %}" class="{% if request.resolver_match.kwargs.pk == 0 %}active{% endif %}">Все</a></li>
                     {% for link in links_menu %}
-                        <li><a href="{% url 'mainapp:category' link.id %}">{{ link.name }}</a></li>
+                        <li><a href="{% url 'mainapp:category' link.id %}"
+                        class="{% if request.resolver_match.kwargs.pk|add:'0' == link.id %}active{% endif %}">
+                            {{ link.name }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
@@ -71,7 +72,7 @@
                 <div class="related-products clearfix">
                     {% for product in products %}
                     <div class="block">
-                        <a href="#"><img src="/media/{{ product.image }}" alt="">
+                        <a href="{% url 'basket:add' product.pk %}"><img src="/media/{{ product.image }}" alt="">
                             <div class="text">
                                 <img src="{% static 'geekshop/img/icon-hover.png' %}" alt="img">
                                 <h3>{{ product.category.name }}</h3>

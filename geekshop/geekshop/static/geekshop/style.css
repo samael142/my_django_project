@@ -88,7 +88,9 @@ html, body {
 	position: absolute;
 	top: 63px;
 	left: 1210px;
+	text-decoration: none;
 }
+
 
 .clearfix:after {
 	content: "";
