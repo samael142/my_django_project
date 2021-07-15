@@ -31,7 +31,7 @@ def products(request, pk=None):
     same_products = get_same_products(hot_product)
     if request.user.is_authenticated:
         basket = Basket.objects.filter(user=request.user)
-    links_menu = ProductCategory.objects.all()
+    links_menu = ProductCategory.objects.filter(is_active=True).all()
     products = Product.objects.all()
     if pk is not None:
         if pk == 0:
