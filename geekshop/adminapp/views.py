@@ -307,7 +307,7 @@ class ProductCreateView(CreateView):
         return context
 
     def get_success_url(self):
-        return reverse('admin:products', kwargs={'pk': self.get_queryset()})
+        return reverse('admin:products', kwargs={'pk': self.kwargs['pk']})
 
 
 class ProductDetailView(DetailView):
