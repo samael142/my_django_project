@@ -298,17 +298,13 @@ class ProductCreateView(CreateView):
     fields = '__all__'
 
     def get_initial(self):
-        return {'category': self.get_queryset()}
+        return {'category': self.kwargs['pk']}
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'продукт/создание'
-        context['category'] = self.get_queryset()
+        context['category'] = self.kwargs['pk']
         return context
-
-    def get_queryset(self):
-        category = self.kwargs['pk']
-        return category
 
     def get_success_url(self):
         return reverse('admin:products', kwargs={'pk': self.get_queryset()})
