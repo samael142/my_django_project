@@ -7,11 +7,11 @@ import random
 
 
 # Create your views here.
-def get_basket(user):
-    if user.is_authenticated:
-        return Basket.objects.filter(user=user)
-    else:
-        return []
+# def get_basket(user):
+#     if user.is_authenticated:
+#         return Basket.objects.filter(user=user)
+#     else:
+#         return []
 
 
 def get_hot_product():
@@ -26,11 +26,11 @@ def get_same_products(hot_product):
 
 def products(request, pk=None, page=1):
     title = 'Продукты'
-    basket = []
+    # basket = []
     hot_product = get_hot_product()
     same_products = get_same_products(hot_product)
-    if request.user.is_authenticated:
-        basket = Basket.objects.filter(user=request.user)
+    # if request.user.is_authenticated:
+    #     basket = Basket.objects.filter(user=request.user)
     links_menu = ProductCategory.objects.filter(is_active=True).all()
     products = Product.objects.all()
     if pk is not None:
@@ -54,7 +54,7 @@ def products(request, pk=None, page=1):
             'links_menu': links_menu,
             'products': products_paginator,
             'category': category,
-            'basket': basket,
+            # 'basket': basket,
             'hot_product': hot_product,
             'same_products': same_products,
         }
@@ -65,7 +65,7 @@ def products(request, pk=None, page=1):
         'hot_product': hot_product,
         'same_products': same_products,
         'products': products,
-        'basket': basket,
+        # 'basket': basket,
     }
     return render(request, 'mainapp/products.html', context=content)
 
@@ -77,6 +77,6 @@ def product(request, pk):
         'title': title,
         'links_menu': ProductCategory.objects.all(),
         'product': get_object_or_404(Product, pk=pk),
-        'basket': get_basket(request.user),
+        # 'basket': get_basket(request.user),
     }
     return render(request, 'mainapp/product.html', content)
